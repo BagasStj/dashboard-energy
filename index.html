@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f1eeeb" />
+    <meta name="description" content="Kinetiq renewable energy plant dashboard with an animated 3D wind and solar farm. Interactive demonstration." />
+    <title>Kinetiq · Plant Operations</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;450;500;550;600;650;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <main class="dashboard" id="dashboard">
+      <div id="scene" role="img" aria-label="Animated 3D renewable energy plant with wind turbines and solar panels"><p class="scene-status" role="status">Loading the plant…</p></div>
+      <div class="scene-haze"></div>
+      <header class="header">
+        <a class="brand" href="#overview" aria-label="Kinetiq overview"><span class="brand-mark">✱</span>Kinetiq</a>
+        <nav aria-label="Main navigation">
+          <button class="active" data-view="Overview" aria-current="page">Overview</button><button data-view="Assets">Assets</button><button data-view="Operations">Operations</button><button data-view="Analytics">Analytics</button><button data-view="Reports">Reports</button>
+        </nav>
+        <div class="account"><button class="round notification" aria-label="Notifications" data-dialog="notifications"><svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg><i></i></button><button class="profile" data-dialog="profile"><span class="avatar">MC</span><span>Maya Collins<small>Operations Manager</small></span><svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></svg></button></div>
+      </header>
+      <section class="plant" id="overview" aria-label="Plant overview">
+        <h1>Plant Operations<br>Overview</h1>
+        <div class="scene-tools">
+          <button class="round" id="rotate" aria-label="Change camera angle" title="Change camera angle"><svg viewBox="0 0 24 24"><path d="m12 3 8 4v10l-8 4-8-4V7l8-4Zm0 8 8-4M12 11 4 7m8 4v10"/></svg></button>
+          <button class="round" id="expand" aria-label="Expand plant view" aria-pressed="false" title="Expand plant view"><svg viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-7 7M10 20H4v-6m0 6 7-7"/></svg></button>
+          <button class="round" data-dialog="settings" aria-label="Scene settings" title="Scene settings"><svg viewBox="0 0 24 24"><path d="M3 6h5m4 0h9M3 12h11m4 0h3M3 18h3m4 0h11"/><circle cx="10" cy="6" r="2"/><circle cx="16" cy="12" r="2"/><circle cx="8" cy="18" r="2"/></svg></button>
+        </div>
+        <button class="plant-pin" data-dialog="solar" aria-label="Inspect Solar Array A"><span></span></button>
+        <article class="card solar-card">
+          <div class="card-heading"><h2><svg viewBox="0 0 24 24"><path d="m13 2-8 12h6l-1 8 9-13h-6l0-7Z"/></svg>Solar Array A</h2><button class="arrow" data-dialog="solar" aria-label="Solar Array A details">↗</button></div>
+          <div class="solar-illustration" aria-label="Solar panel model"><svg viewBox="0 0 280 160" role="img"><defs><linearGradient id="panel" x2="1" y2="1"><stop stop-color="#203e68"/><stop offset=".55" stop-color="#5278a0"/><stop offset="1" stop-color="#263e5b"/></linearGradient><radialGradient id="shine"><stop stop-color="#fff8d6" stop-opacity=".95"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient><filter id="shadow"><feGaussianBlur stdDeviation="4"/></filter></defs><ellipse cx="144" cy="139" rx="91" ry="9" fill="#333" opacity=".15" filter="url(#shadow)"/><g stroke="#a9a6a0" stroke-width="6"><path d="M57 100v35m166-48v43M87 53v60m97-74v67"/><path d="m57 132 30-30m97 1 39 24" stroke-width="3"/></g><path d="m30 52 165-25 54 77-174 33Z" fill="#a4a7a5"/><path d="m31 48 164-25 54 77-174 32Z" fill="url(#panel)" stroke="#d1d6d7" stroke-width="3"/><g stroke="#c4d1db" stroke-width="1"><path d="m63 43 46 83m-13-88 47 82m-15-88 49 82m-16-87 50 81M43 68l168-28M56 89l171-29M67 110l174-30"/></g><ellipse cx="192" cy="58" rx="34" ry="29" fill="url(#shine)"/></svg></div>
+          <dl><dt>Status</dt><dd><span class="online">Online</span></dd><dt>Current output</dt><dd>8.1 MW</dd><dt>Efficiency</dt><dd>94.1%</dd><dt>Panel temp.</dt><dd>42°C</dd><dt>Irradiance</dt><dd>820 W/m²</dd></dl>
+        </article>
+        <span class="demo-label"><span></span>Demo plant · Animated 3D view</span>
+      </section>
+      <section class="metrics" aria-label="Plant metrics">
+        <div class="metrics-left">
+          <article class="summary"><div><h2>Total Generation</h2><p>124.8 <small>MW</small></p></div><div><h2>Plant Efficiency</h2><p>94.1 <small>%</small></p></div></article>
+          <article class="card capture-rate"><div class="card-heading"><h2>Capture Rate</h2><button class="arrow" data-dialog="capture" aria-label="Capture rate details">↗</button></div><div class="rate-value"><p>52.4 <small>t/h</small></p><span><b>⌃ 14.2%</b> vs previous period</span></div><div id="bubble-chart" class="bubble-chart" role="img" aria-label="Demo capture rate throughout the day, 52.4 tonnes per hour"></div><div class="chart-axis"><span>06:00</span><span>09:00</span><span>12:00</span><span>15:00</span><span>18:00</span></div></article>
+          <article class="card health"><div class="card-heading"><h2>System Health</h2><button class="arrow" data-dialog="health" aria-label="System health details">↗</button></div><p class="attention"><strong>2</strong> systems require attention</p><div class="health-chart"><div><div class="health-track"><div class="health-fill blue" style="height:100%"></div><span>100%</span></div><p>Capture Unit</p></div><div><div class="health-track"><div class="health-fill yellow" style="height:56%"></div><span>56%</span></div><p>Compression</p></div><div><div class="health-track"><div class="health-fill orange" style="height:32%"></div><span>32%</span></div><p>Solar Array</p></div></div></article>
+        </div>
+        <div class="metrics-right">
+          <article class="card performance"><div class="card-heading"><h2>Capture Performance</h2><button class="arrow" data-dialog="performance" aria-label="Capture performance details">↗</button></div><div class="gauge"><svg id="gauge" viewBox="0 0 300 180" aria-hidden="true"></svg><div class="gauge-value">90 <small>%</small><span>Capture Efficiency</span></div></div><div class="bars" id="performance-bars" aria-hidden="true"></div><div class="performance-stats"><div><span>Captured</span><strong>1,240 t</strong></div><div><span>Daily target</span><strong>1,500 t</strong></div><div><span>Uptime</span><strong>99.1%</strong></div></div></article>
+          <article class="card weather"><div class="card-heading"><h2>Weather Forecast</h2><button class="arrow" data-dialog="weather" aria-label="Weather forecast information">···</button></div><div class="weather-tabs" aria-label="Forecast period"><button data-days="3" aria-pressed="false">3 days</button><button data-days="7" class="active" aria-pressed="true">7 days</button><button data-days="14" aria-pressed="false">14 days</button></div><div class="weather-head"><span>Conditions</span><span>Wind</span><span>Irradiance</span></div><div id="weather-rows" class="weather-rows"></div></article>
+        </div>
+      </section>
+      <section class="view-panel" hidden aria-label="Plant workspace"></section>
+    </main>
+    <dialog id="detail-dialog"><form method="dialog"><button class="dialog-close" aria-label="Close dialog">×</button></form><div id="dialog-content"></div></dialog>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
